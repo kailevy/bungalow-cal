@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('bungalow-cal') as HTMLElement // change to bungalow-cal
 );
 root.render(
   <React.StrictMode>
