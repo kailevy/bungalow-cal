@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import FullCalendar from '@fullcalendar/react';
+import FullCalendar, { createDuration } from '@fullcalendar/react';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import listPlugin from '@fullcalendar/list';
 import Timeline from 'react-calendar-timeline';
@@ -75,7 +75,8 @@ function App() {
             // ref={this.calendarRef}
             plugins={[ listPlugin, googleCalendarPlugin ]}
             googleCalendarApiKey = 'TODO:APIKEY'
-            initialView='listYear'
+            initialView='list'
+            duration={createDuration({ days: 730 })}
             eventSources={[
               {
                 googleCalendarId: 'c14qpbkomnhi19v6lqqchiv0rg@group.calendar.google.com',
