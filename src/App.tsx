@@ -16,6 +16,8 @@ function App() {
   const [g2, setG2] = useState(false);
   const [g3, setG3] = useState(false);
   const [g4, setG4] = useState(false);
+  const [g5, setG5] = useState(false);
+  const [g6, setG6] = useState(false);
   const [items, setItems] = useState<any[]>([]);
   const [date, setDate] = useState<Date>(new Date());
   const [width, setWidth] = useState<number>(window.innerWidth);
@@ -24,10 +26,12 @@ function App() {
   const isMobile = width <= 768;
   
   const groups = [
-    { id: 1, title: 'Manchester Back', name: 'Manchester Back Available', color: 'rgba(212, 70, 49, ' },
+    { id: 1, title: 'Manchester Back',  name: 'Manchester Back Available',  color: 'rgba(212, 70, 49, ' },
     { id: 2, title: 'Manchester Front', name: 'Manchester Front Available', color: 'rgba(146, 69, 161, ' },
     { id: 3, title: 'Montgomery North', name: 'Montgomery North Available', color: 'rgba(45, 79, 216, ' },
-    { id: 4, title: 'Montgomery South', name: 'Montgomery South Available', color: 'rgba(73, 87, 22, ' }
+    { id: 4, title: 'Montgomery South', name: 'Montgomery South Available', color: 'rgba(73, 87, 22, ' },
+    { id: 5, title: 'Grandview',        name: 'Grandview Available',        color: 'rgba(228, 110, 76, ' },
+    { id: 6, title: 'Moonlight',        name: 'Moonlight Available',        color: 'rgba(100, 6, 20, ' }
   ]
 
   let titleToGroupId: { [title: string]: number } = {}
@@ -130,6 +134,28 @@ function App() {
               success: function(data) {
                 if (!g4) {
                   setG4(true)
+                  setItems(prev => {
+                    return [...prev, ...data.map(eventToEvent)];
+                  })
+                }
+              },
+            },
+            {
+              googleCalendarId: 'bu574phdrhm4pbrja4no3gdqvc@group.calendar.google.com',
+              success: function(data) {
+                if (!g5) {
+                  setG5(true)
+                  setItems(prev => {
+                    return [...prev, ...data.map(eventToEvent)];
+                  })
+                }
+              },
+            },
+            {
+              googleCalendarId: 'fftddelp8co429b18gou8l9bng@group.calendar.google.com',
+              success: function(data) {
+                if (!g6) {
+                  setG6(true)
                   setItems(prev => {
                     return [...prev, ...data.map(eventToEvent)];
                   })
