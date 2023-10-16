@@ -1,0 +1,17 @@
+deploy instructions
+
+- copy key into code
+- test with `yarn start`
+- change index.tsx: `'root'` -> `'bungalow-cal'`
+- run `yarn build`
+- find files in build/static:
+	- rename `js/main.<rand>.js to `js/main.js`
+	- css probably doesn't need to be updated, but the relevant one is `css/main.<rand>.css`, and may need to be renamed to remove the extra period
+- upload to squarespace:
+	- https://support.squarespace.com/hc/en-us/articles/205813928-Uploading-and-managing-files?platform=v6&websiteId=5eb0a2c2147c7c5bd5611990
+	- need to use link editor in content editor
+	- delete old main.js and upload new one
+- code block should look like:
+```
+<meta name="viewport" content="width=device-width,initial-scale=1"/><head><script defer="defer" src="s/main.js"></script><link href="s/main9fdc2ff3.css" rel="stylesheet"></head><body><div id="bungalow-cal"></div></body>
+```
