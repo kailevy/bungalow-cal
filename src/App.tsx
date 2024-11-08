@@ -28,14 +28,14 @@ function App() {
   const isMobile = width <= 768;
   
   const groups = [
-    { id: 1, title: 'Manchester Back',  name: 'Manchester Back Available',  color: 'rgba(212, 70, 49, ' },
-    { id: 2, title: 'Manchester Front', name: 'Manchester Front Available', color: 'rgba(146, 69, 161, ' },
+    { id: 1, title: 'Manchester Front', name: 'Manchester Front Available', color: 'rgba(146, 69, 161, ' },
+    { id: 2, title: 'Manchester Back',  name: 'Manchester Back Available',  color: 'rgba(212, 70, 49, ' },
     { id: 3, title: 'Montgomery North', name: 'Montgomery North Available', color: 'rgba(45, 79, 216, ' },
     { id: 4, title: 'Montgomery South', name: 'Montgomery South Available', color: 'rgba(73, 87, 22, ' },
-    { id: 5, title: 'Grandview',        name: 'Grandview Available',        color: 'rgba(228, 110, 76, ' },
-    { id: 6, title: 'Moonlight',        name: 'Moonlight Available',        color: 'rgba(100, 6, 20, ' },
-    { id: 7, title: 'Ponto',            name: 'Ponto Available',            color: 'rgba(212, 70, 49, ' },
-    { id: 8, title: 'Beacons',          name: 'Beacons Available',          color: 'rgba(146, 69, 161, '}
+    { id: 5, title: 'Moonlight',        name: 'Moonlight Available',        color: 'rgba(100, 6, 20, ' },
+    { id: 6, title: 'Beacons',          name: 'Beacons Available',          color: 'rgba(146, 69, 161, '},
+    { id: 7, title: 'Grandview',        name: 'Grandview Available',        color: 'rgba(228, 110, 76, ' },
+    { id: 8, title: 'Ponto',            name: 'Ponto Available',            color: 'rgba(212, 70, 49, ' }
   ]
 
   let titleToGroupId: { [title: string]: number } = {}
@@ -101,7 +101,7 @@ function App() {
           duration={createDuration({ days: 730 })}
           eventSources={[
             {
-              googleCalendarId: 'c14qpbkomnhi19v6lqqchiv0rg@group.calendar.google.com',
+              googleCalendarId: 'ufri8h0ma7fgst5tq6oprb7igc@group.calendar.google.com',
               success: function(data) {
                 if (!g1) {
                   setG1(true)
@@ -112,7 +112,7 @@ function App() {
               },
             },
             {
-              googleCalendarId: 'ufri8h0ma7fgst5tq6oprb7igc@group.calendar.google.com',
+              googleCalendarId: 'c14qpbkomnhi19v6lqqchiv0rg@group.calendar.google.com',
               success: function(data) {
                 if (!g2) {
                   setG2(true)
@@ -145,7 +145,7 @@ function App() {
               },
             },
             {
-              googleCalendarId: 'bu574phdrhm4pbrja4no3gdqvc@group.calendar.google.com',
+              googleCalendarId: 'fftddelp8co429b18gou8l9bng@group.calendar.google.com',
               success: function(data) {
                 if (!g5) {
                   setG5(true)
@@ -156,7 +156,7 @@ function App() {
               },
             },
             {
-              googleCalendarId: 'fftddelp8co429b18gou8l9bng@group.calendar.google.com',
+              googleCalendarId: 'd3693e37903f276e1b656e18f3c09cb06edc6aafa554f17a3741d008dfec2431@group.calendar.google.com',
               success: function(data) {
                 if (!g6) {
                   setG6(true)
@@ -167,7 +167,7 @@ function App() {
               },
             },
             {
-              googleCalendarId: '6abff5bf58fa65d9337ca7101d99a65d491c4210664f95ed018f74aff30b0c1b@group.calendar.google.com',
+              googleCalendarId: 'bu574phdrhm4pbrja4no3gdqvc@group.calendar.google.com',
               success: function(data) {
                 if (!g7) {
                   setG7(true)
@@ -178,7 +178,7 @@ function App() {
               },
             },
             {
-              googleCalendarId: 'd3693e37903f276e1b656e18f3c09cb06edc6aafa554f17a3741d008dfec2431@group.calendar.google.com',
+              googleCalendarId: '6abff5bf58fa65d9337ca7101d99a65d491c4210664f95ed018f74aff30b0c1b@group.calendar.google.com',
               success: function(data) {
                 if (!g8) {
                   setG8(true)
