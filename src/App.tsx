@@ -20,6 +20,7 @@ function App() {
   const [g6, setG6] = useState(false);
   const [g7, setG7] = useState(false);
   const [g8, setG8] = useState(false);
+  const [g9, setG9] = useState(false);
   const [items, setItems] = useState<any[]>([]);
   const [date, setDate] = useState<Date>(new Date());
   const [width, setWidth] = useState<number>(window.innerWidth);
@@ -35,7 +36,8 @@ function App() {
     { id: 5, title: 'Moonlight',        name: 'Moonlight Available',        color: 'rgba(100, 6, 20, ' },
     { id: 6, title: 'Beacons',          name: 'Beacons Available',          color: 'rgba(146, 69, 161, '},
     { id: 7, title: 'Grandview',        name: 'Grandview Available',        color: 'rgba(228, 110, 76, ' },
-    { id: 8, title: 'Ponto',            name: 'Ponto Available',            color: 'rgba(212, 70, 49, ' }
+    { id: 8, title: 'Ponto',            name: 'Ponto Available',            color: 'rgba(212, 70, 49, ' },
+    { id: 9, title: 'Fox Point Farms',  name: 'Fox Point Farms Available',  color: 'rgba(45, 79, 216, ' }
   ]
 
   let titleToGroupId: { [title: string]: number } = {}
@@ -182,6 +184,17 @@ function App() {
               success: function(data) {
                 if (!g8) {
                   setG8(true)
+                  setItems(prev => {
+                    return [...prev, ...data.map(eventToEvent)];
+                  })
+                }
+              },
+            },
+            {
+              googleCalendarId: '9c93498d6a619cf78021e93bd88337bc0313d8faee151143ad4f097bc23d4b93@group.calendar.google.com',
+              success: function(data) {
+                if (!g9) {
+                  setG9(true)
                   setItems(prev => {
                     return [...prev, ...data.map(eventToEvent)];
                   })
