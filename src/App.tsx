@@ -12,15 +12,16 @@ import moment from 'moment';
 
 function App() {
   // sketch useState but oh well
-  const [g1, setG1] = useState(false);
-  const [g2, setG2] = useState(false);
-  const [g3, setG3] = useState(false);
-  const [g4, setG4] = useState(false);
-  const [g5, setG5] = useState(false);
-  const [g6, setG6] = useState(false);
-  const [g7, setG7] = useState(false);
-  const [g8, setG8] = useState(false);
-  const [g9, setG9] = useState(false);
+  const [g1, setG1]   = useState(false);
+  const [g2, setG2]   = useState(false);
+  const [g3, setG3]   = useState(false);
+  const [g4, setG4]   = useState(false);
+  const [g5, setG5]   = useState(false);
+  const [g6, setG6]   = useState(false);
+  const [g7, setG7]   = useState(false);
+  const [g8, setG8]   = useState(false);
+  const [g9, setG9]   = useState(false);
+  const [g10, setG10] = useState(false);
   const [items, setItems] = useState<any[]>([]);
   const [date, setDate] = useState<Date>(new Date());
   const [width, setWidth] = useState<number>(window.innerWidth);
@@ -29,15 +30,16 @@ function App() {
   const isMobile = width <= 768;
   
   const groups = [
-    { id: 1, title: 'Manchester Front', name: 'Manchester Front Available', color: 'rgba(146, 69, 161, ' },
-    { id: 2, title: 'Manchester Back',  name: 'Manchester Back Available',  color: 'rgba(212, 70, 49, ' },
-    { id: 3, title: 'Montgomery North', name: 'Montgomery North Available', color: 'rgba(45, 79, 216, ' },
-    { id: 4, title: 'Montgomery South', name: 'Montgomery South Available', color: 'rgba(73, 87, 22, ' },
-    { id: 5, title: 'Moonlight',        name: 'Moonlight Available',        color: 'rgba(100, 6, 20, ' },
-    { id: 6, title: 'Beacons',          name: 'Beacons Available',          color: 'rgba(146, 69, 161, '},
-    { id: 7, title: 'Grandview',        name: 'Grandview Available',        color: 'rgba(228, 110, 76, ' },
-    { id: 8, title: 'Ponto',            name: 'Ponto Available',            color: 'rgba(212, 70, 49, ' },
-    { id: 9, title: 'Fox Point Farms',  name: 'Fox Point Farms Available',  color: 'rgba(45, 79, 216, ' }
+    { id: 1,  title: 'Manchester Front', name: 'Manchester Front Available', color: 'rgba(146, 69, 161, ' },
+    { id: 2,  title: 'Manchester Back',  name: 'Manchester Back Available',  color: 'rgba(212, 70, 49, ' },
+    { id: 3,  title: 'Montgomery North', name: 'Montgomery North Available', color: 'rgba(45, 79, 216, ' },
+    { id: 4,  title: 'Montgomery South', name: 'Montgomery South Available', color: 'rgba(73, 87, 22, ' },
+    { id: 5,  title: 'Moonlight',        name: 'Moonlight Available',        color: 'rgba(100, 6, 20, ' },
+    { id: 6,  title: 'Beacons',          name: 'Beacons Available',          color: 'rgba(146, 69, 161, '},
+    { id: 7,  title: 'Grandview',        name: 'Grandview Available',        color: 'rgba(228, 110, 76, ' },
+    { id: 8,  title: 'Ponto',            name: 'Ponto Available',            color: 'rgba(212, 70, 49, ' },
+    { id: 9,  title: 'Fox Point Farms',  name: 'Fox Point Farms Available',  color: 'rgba(45, 79, 216, ' },
+    { id: 10, title: 'Capri',            name: 'Capri Available',            color: 'rgba(73, 87, 22, ' }
   ]
 
   let titleToGroupId: { [title: string]: number } = {}
@@ -201,6 +203,17 @@ function App() {
                 }
               },
             },
+            {
+              googleCalendarId: '141f6e123e91a79ef49999b5f5ebacd31118d27f5097fa20387900984ee6ae0a@group.calendar.google.com',
+              success: function(data) {
+                if (!g10) {
+                  setG10(true)
+                  setItems(prev => {
+                    return [...prev, ...data.map(eventToEvent)];
+                  })
+                }
+              },
+            },
           ]}
         />
       </div>
@@ -212,8 +225,8 @@ function App() {
             onSelect={handleDatePick}
             onChange={handleDateChange}
             placeholderText='Jump to date'
-            popperPlacement={"auto"}
-            popperClassName={"custom-popper"}/>
+            popperClassName={"custom-popper"}
+            useWeekdaysShort={false}/>
         </div>
       </div>
       <div>
@@ -228,11 +241,16 @@ function App() {
     </div>
   );
 
-  function handleDatePick(date: Date) {
-    setDate(date)
+  function handleDatePick(date: Date | null) {
+    if (date) {
+      setDate(date)
+    }
   }
 
-  function handleDateChange(date: Date) {
+  function handleDateChange(date: Date | null) {
+    if (date) {
+      setDate(date)
+    }
   }
 
   function convertRemToPixels(rem: number) {    
